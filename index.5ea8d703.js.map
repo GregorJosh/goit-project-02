@@ -1,1 +1,0 @@
-{"mappings":"gfAAAA,EAAA,SAEAC,QAAIC,QAAQ,kBCFZF,EAAA,SAEAC,QAAIC,QAAQ,c","sources":["src/js/search-form.js","src/js/gallery.js"],"sourcesContent":["import app from './global/app';\n\napp.apiTest('search-form.js');\n","import app from './global/app';\n\napp.apiTest('gallery.js');\n"],"names":["parcelRequire","default","apiTest"],"version":3,"file":"index.5ea8d703.js.map"}
