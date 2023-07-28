@@ -16,7 +16,7 @@ const closeModal = () => {
 };
 
 const openModal = () => {
-  backdropAboutWindow.classList.remove('idden');
+  backdropAboutWindow.classList.remove('hidden');
 };
 
 const escapeModal = e => {
