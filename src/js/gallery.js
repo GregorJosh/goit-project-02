@@ -1,11 +1,14 @@
 import app from './global/app';
-
 app.getMoviesTodayTrends = async function (page = app.currentPage) {
   const galleryULElement = document.getElementById(
     app.MOVIE_CARDS_PARENT_ELEMENT_ID
   );
 
+<<<<<<< Updated upstream
   const movies = await app.api.get('trending/movie/day', { page });
+=======
+  const movies = await app.api.get(`trending/movie/day?page=${page}`);
+>>>>>>> Stashed changes
   const movieCards = await app.showMovieCards(movies);
 
   galleryULElement.insertAdjacentHTML('afterbegin', movieCards);
