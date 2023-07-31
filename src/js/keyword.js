@@ -11,14 +11,34 @@ app.apiTest('keyword.js');
 
 // app.getMoviesByKeyWord();
 
+// app.getMoviesByKeyWord = async function (keyword) {
+//   Loading.circle();
+//   app.currentKeyword = keyword;
+//   const keywordData = await app.api.get(
+//     `search/keyword?query=${keyword}&page=${app.currentPage}`
+//   );
+//   Loading.remove();
+//   if (keywordData.total_results > 0) {
+//     return keywordData;
+//   } else {
+//     app.onSearchFailed();
+//     return {};
+//   }
+
+//   Notify.success('Notiflix Test');
+// };
+
 app.getMoviesByKeyWord = async function (keyword) {
   Loading.circle();
+  const movies = await app.api.get(`movie/popular?page=${page}`);
+  const movieCards = await app.showMovieCards(keyword);
   app.currentKeyword = keyword;
   const keywordData = await app.api.get(
     `search/keyword?query=${keyword}&page=${app.currentPage}`
   );
   Loading.remove();
   if (keywordData.total_results > 0) {
+    app.onSearchSuccess();
     return keywordData;
   } else {
     app.onSearchFailed();
@@ -27,6 +47,7 @@ app.getMoviesByKeyWord = async function (keyword) {
 
   Notify.success('Notiflix Test');
 };
+
 //   app.currentKeyword = keyword;
 
 //   const keywordData = await app.api.get(`search/keyword?query=${keyword}&page${app.currentPage}`);
