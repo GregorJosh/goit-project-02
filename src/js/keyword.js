@@ -29,23 +29,23 @@ app.apiTest('keyword.js');
 // };
 
 app.getMoviesByKeyWord = async function (keyword) {
-  Loading.circle();
-  const movies = await app.api.get(`movie/popular?page=${page}`);
-  const movieCards = await app.showMovieCards(keyword);
+  const galleryULElement = document.getElementById(
+    app.MOVIE_CARDS_PARENT_ELEMENT_ID
+  );
+  app.Loading.circle();
   app.currentKeyword = keyword;
-  const keywordData = await app.api.get(
+  const movies = await app.api.get(
     `search/keyword?query=${keyword}&page=${app.currentPage}`
   );
+
   Loading.remove();
-  if (keywordData.total_results > 0) {
+  if (movies.total_results > 0) {
+    const moviesHTML = app.showMovieCards(movies);
+    galleryULElement.insertAdjacentHTML('afterbegin', moviesHTML);
     app.onSearchSuccess();
-    return keywordData;
   } else {
     app.onSearchFailed();
-    return {};
   }
-
-  Notify.success('Notiflix Test');
 };
 
 //   app.currentKeyword = keyword;
