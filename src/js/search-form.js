@@ -5,3 +5,4 @@ app.apiTest('search-form.js');
 app.getMoviesByKeyWord = function () {
   formError.classList.add('hidden');
 };
+keyword.addEventListener('submit', onSubmit);
