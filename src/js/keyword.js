@@ -32,6 +32,7 @@ app.getMoviesByKeyWord = async function (keyword) {
   const galleryULElement = document.getElementById(
     app.MOVIE_CARDS_PARENT_ELEMENT_ID
   );
+
   app.Loading.circle();
   app.currentKeyword = keyword;
   const movies = await app.api.get(
